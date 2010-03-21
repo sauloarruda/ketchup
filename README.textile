@@ -1,0 +1,7 @@
+h1. Ketchup
+
+h2. Simplifique o uso da técnica Pomodoro na sua equipe!
+
+O uso da técnica Pomodoro sem dúvida traz ótimos resultados com relação ao foco e produtividade de uma equipe, além de estimular o uso de estimativas e _time-boxing_. 
+
+O Ketchup foi criado para facilitar a gestão e acompanhamento do uso da técnica Pomodoro por meio de ferramentas multi-plataforma que permite a equipe executar seus Pomodori registrando dos dados em um repositório central que facilita a visualização dos resultados.
