@@ -16,3 +16,1518 @@
   [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
   [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
   [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (148.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (382.8ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePomodoris (20100322210423)
+  [4;35;1mSQL (109.5ms)[0m   [0mCREATE TABLE `pomodoris` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `start_date` datetime, `end_date` datetime, `external_interruptions` int(11) DEFAULT 0, `internal_interruptions` int(11) DEFAULT 0, `organizational` tinyint(1) DEFAULT 0, `unplanned` tinyint(1) DEFAULT 0, `canceled` tinyint(1) DEFAULT 0, `completed` tinyint(1) DEFAULT 0) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322210423')[0m
+Migrating to CreateProjects (20100322224727)
+  [4;35;1mSQL (137.5ms)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322224727')[0m
+Migrating to CreateActivities (20100322224734)
+  [4;35;1mSQL (121.5ms)[0m   [0mCREATE TABLE `activities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `estimate` int(11), `completed` tinyint(1) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322224734')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `activities`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `activities`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `pomodoris`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `pomodoris`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `pomodoris`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.4ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-22 22:57:01', 0, '2010-03-22 22:57:01', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mDROP DATABASE IF EXISTS `backend_test`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE DATABASE `backend_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (84.2ms)[0m   [0mCREATE TABLE `activities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `estimate` int(11), `completed` tinyint(1) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (267.6ms)[0m   [0mCREATE TABLE `pomodoris` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `start_date` datetime, `end_date` datetime, `external_interruptions` int(11) DEFAULT 0, `internal_interruptions` int(11) DEFAULT 0, `organizational` tinyint(1) DEFAULT 0, `unplanned` tinyint(1) DEFAULT 0, `canceled` tinyint(1) DEFAULT 0, `completed` tinyint(1) DEFAULT 0) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (156.9ms)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (177.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (101.1ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20100322224734')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100322210423')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20100322224727')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPomodori Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `pomodoris`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPomodori Create (0.3ms)[0m   [0;1mINSERT INTO `pomodoris` (`start_date`, `organizational`, `unplanned`, `completed`, `external_interruptions`, `internal_interruptions`, `canceled`, `end_date`) VALUES(NULL, 1, 0, 0, 0, 0, 0, NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
+  [4;35;1mSQL (2.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProject Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProject Create (0.2ms)[0m   [0mINSERT INTO `projects` (`name`, `created_at`, `updated_at`) VALUES(NULL, '2010-03-22 22:58:58', '2010-03-22 22:58:58')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-22 22:58:58', 0, '2010-03-22 22:58:58', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:03:33) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 3ms (View: 0, DB: 1) | 200 OK [http://localhost/activities]
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:11:26) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://localhost/activities]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:12:50) [GET]
+  [4;36;1mActivity Load (0.0ms)[0m   [0;1mMysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` [0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` ):
+  app/controllers/activities_controller.rb:4:in `index'
+
+Rendered rescues/_trace (39.1ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:12:53) [GET]
+  [4;35;1mActivity Load (0.0ms)[0m   [0mMysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` [0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` ):
+  app/controllers/activities_controller.rb:4:in `index'
+
+Rendered rescues/_trace (105.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:12:53) [GET]
+  [4;36;1mActivity Load (0.0ms)[0m   [0;1mMysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` [0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` ):
+  app/controllers/activities_controller.rb:4:in `index'
+
+Rendered rescues/_trace (42.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:12:55) [GET]
+  [4;35;1mActivity Load (0.0ms)[0m   [0mMysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` [0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` ):
+  app/controllers/activities_controller.rb:4:in `index'
+
+Rendered rescues/_trace (56.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:13:22) [GET]
+  [4;36;1mActivity Load (0.0ms)[0m   [0;1mMysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` [0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'ketchup_test.activities' doesn't exist: SELECT * FROM `activities` ):
+  app/controllers/activities_controller.rb:4:in `index'
+
+Rendered rescues/_trace (110.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity Columns (0.0ms)[0m   [0mMysql::Error: Table 'ketchup_test.activities' doesn't exist: SHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mActivity Columns (0.0ms)[0m   [0;1mMysql::Error: Table 'ketchup_test.activities' doesn't exist: SHOW FIELDS FROM `activities`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (104.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (231.6ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePomodoris (20100322210423)
+  [4;35;1mSQL (126.6ms)[0m   [0mCREATE TABLE `pomodoris` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `start_date` datetime, `end_date` datetime, `external_interruptions` int(11) DEFAULT 0, `internal_interruptions` int(11) DEFAULT 0, `organizational` tinyint(1) DEFAULT 0, `unplanned` tinyint(1) DEFAULT 0, `canceled` tinyint(1) DEFAULT 0, `completed` tinyint(1) DEFAULT 0) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322210423')[0m
+Migrating to CreateProjects (20100322224727)
+  [4;35;1mSQL (108.2ms)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322224727')[0m
+Migrating to CreateActivities (20100322224734)
+  [4;35;1mSQL (109.8ms)[0m   [0mCREATE TABLE `activities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `estimate` int(11), `completed` tinyint(1) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322224734')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `activities`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `activities`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `pomodoris`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mdescribe `pomodoris`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `pomodoris`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-22 23:15:04', 0, '2010-03-22 23:15:04', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity Columns (130.3ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-22 23:15:19', 0, '2010-03-22 23:15:19', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (72.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-22 23:15:35', 0, '2010-03-22 23:15:35', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-22 23:15:52', 0, '2010-03-22 23:15:52', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProject Load (1.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 766255485) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-22 23:15:52', 0, '2010-03-22 23:15:52', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-22 23:16:11', 0, '2010-03-22 23:16:11', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (20.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 766255485) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-22 23:16:11', 0, '2010-03-22 23:16:11', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (71.9ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (161.4ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePomodoris (20100322210423)
+  [4;35;1mSQL (91.0ms)[0m   [0mCREATE TABLE `pomodoris` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `start_date` datetime, `end_date` datetime, `external_interruptions` int(11) DEFAULT 0, `internal_interruptions` int(11) DEFAULT 0, `organizational` tinyint(1) DEFAULT 0, `unplanned` tinyint(1) DEFAULT 0, `canceled` tinyint(1) DEFAULT 0, `completed` tinyint(1) DEFAULT 0) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322210423')[0m
+Migrating to CreateProjects (20100322224727)
+  [4;35;1mSQL (121.5ms)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322224727')[0m
+Migrating to CreateActivities (20100322224734)
+  [4;35;1mSQL (143.9ms)[0m   [0mCREATE TABLE `activities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `estimate` int(11), `completed` tinyint(1) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322224734')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `activities`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `activities`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `pomodoris`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `pomodoris`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `pomodoris`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:22:52) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 3ms (View: 0, DB: 1) | 200 OK [http://localhost/activities]
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:22:53) [GET]
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://localhost/activities]
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:22:54) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://localhost/activities]
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:22:55) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://localhost/activities]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:22:57) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:22:59) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:23:02) [GET]
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/activities]
+
+
+Processing ActivitiesController#show (for 127.0.0.1 at 2010-03-22 19:23:05) [GET]
+  Parameters: {"id"=>"index"}
+
+ActionController::UnknownAction (No action responded to show. Actions: index):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:23:08) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://localhost/activities]
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:23:39) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://localhost/activities]
+
+
+Processing ActivitiesController#index (for 127.0.0.1 at 2010-03-22 19:24:13) [GET]
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://localhost/activities]
+
+
+Processing ActivitiesController#index to jspn (for 127.0.0.1 at 2010-03-22 19:24:38) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 1ms (View: 0, DB: 0) | 406 Not Acceptable [http://localhost/activities.jspn]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:24:42) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:24:45) [GET]
+  [4;36;1mActivity Load (0.6ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 3ms (View: 0, DB: 1) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:26:14) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+  [4;36;1mActivity Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+Completed in 430ms (View: 427, DB: 2) | 200 OK [http://localhost/activities.json]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:05) [GET]
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` [0m
+  [4;35;1mActivity Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+Completed in 46ms (View: 41, DB: 3) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:06) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:07) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:07) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:08) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:08) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:08) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:09) [GET]
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:09) [GET]
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` [0m
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/activities.json]
+
+
+Processing ActivitiesController#index to json (for 127.0.0.1 at 2010-03-22 19:27:09) [GET]
+  [4;36;1mActivity Load (0.7ms)[0m   [0;1mSELECT * FROM `activities` [0m
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://localhost/activities.json]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-23 20:07:24', 0, '2010-03-23 20:07:24', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `created_at`, `completed`, `updated_at`, `estimate`) VALUES('Define project vision', '2010-03-23 20:07:24', 0, '2010-03-23 20:07:24', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (55.0ms)[0m   [0mCREATE TABLE `activities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `estimate` int(11), `completed` tinyint(1) DEFAULT 0, `project_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (150.0ms)[0m   [0mCREATE TABLE `pomodoris` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `start_date` datetime, `end_date` datetime, `external_interruptions` int(11) DEFAULT 0, `internal_interruptions` int(11) DEFAULT 0, `organizational` tinyint(1) DEFAULT 0, `unplanned` tinyint(1) DEFAULT 0, `canceled` tinyint(1) DEFAULT 0, `completed` tinyint(1) DEFAULT 0) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (131.3ms)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (110.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (114.5ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20100322224734')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100322210329')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20100322224727')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (54.7ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (144.5ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100322210329)
+  [4;35;1mSQL (105.2ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322210329')[0m
+Migrating to CreateProjects (20100322224727)
+  [4;35;1mSQL (108.7ms)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322224727')[0m
+Migrating to CreateActivities (20100322224734)
+  [4;35;1mSQL (101.3ms)[0m   [0mCREATE TABLE `activities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `estimate` int(11), `completed` tinyint(1) DEFAULT 0, `organizational` tinyint(1) DEFAULT 0, `unplanned` tinyint(1) DEFAULT 0, `project_id` int(11), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322224734')[0m
+Migrating to CreatePomodoris (20100322225423)
+  [4;35;1mSQL (98.1ms)[0m   [0mCREATE TABLE `pomodoris` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `start_date` datetime, `end_date` datetime, `external_interruptions` int(11) DEFAULT 0, `internal_interruptions` int(11) DEFAULT 0, `canceled` tinyint(1) DEFAULT 0) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322225423')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `activities`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `activities`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `pomodoris`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `pomodoris`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW KEYS FROM `pomodoris`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePomodoris (20100322225423)
+  [4;36;1mSQL (1.8ms)[0m   [0;1mDROP TABLE `pomodoris`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20100322225423'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `activities`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `activities`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100322210329)
+Migrating to CreateProjects (20100322224727)
+Migrating to CreateActivities (20100322224734)
+Migrating to CreatePomodoris (20100322225423)
+  [4;36;1mSQL (103.7ms)[0m   [0;1mCREATE TABLE `pomodoris` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `start_date` datetime, `end_date` datetime, `external_interruptions` int(11) DEFAULT 0, `internal_interruptions` int(11) DEFAULT 0, `canceled` tinyint(1) DEFAULT 0, `activity_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100322225423')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `activities`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `activities`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `pomodoris`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `pomodoris`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `pomodoris`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mActivity Create (0.2ms)[0m   [0;1mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:13:16', 0, 0, NULL, '2010-03-23 20:13:16', NULL, 2)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mActivity Create (0.2ms)[0m   [0;1mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:13:16', 0, 0, 1, '2010-03-23 20:13:16', NULL, 2)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mActivity Create (0.5ms)[0m   [0;1mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:13:55', 0, 0, NULL, '2010-03-23 20:13:55', NULL, 2)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mActivity Create (0.2ms)[0m   [0;1mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:13:55', 0, 0, 1, '2010-03-23 20:13:55', NULL, 2)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mActivity Create (0.2ms)[0m   [0;1mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:14:34', 0, 0, NULL, '2010-03-23 20:14:34', NULL, 2)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mActivity Create (0.2ms)[0m   [0;1mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:14:34', 0, 0, 1, '2010-03-23 20:14:34', NULL, 2)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mActivity Create (0.3ms)[0m   [0;1mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:15:22', 0, 0, NULL, '2010-03-23 20:15:22', NULL, 2)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mActivity Create (0.2ms)[0m   [0;1mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:15:22', 0, 0, 1, '2010-03-23 20:15:22', NULL, 2)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` WHERE (completed=false) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:17:34', 0, 0, NULL, '2010-03-23 20:17:34', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:17:34', 0, 0, 1, '2010-03-23 20:17:34', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` WHERE (completed=false) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:18:22', 0, 0, NULL, '2010-03-23 20:18:22', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:18:22', 0, 0, 1, '2010-03-23 20:18:22', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` WHERE (completed=false) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:18:38', 0, 0, NULL, '2010-03-23 20:18:38', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:18:38', 0, 0, 1, '2010-03-23 20:18:38', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` WHERE (completed=false) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:19:15', 0, 0, NULL, '2010-03-23 20:19:15', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:19:15', 0, 0, 1, '2010-03-23 20:19:15', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` WHERE (completed=false) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:19:31', 0, 0, NULL, '2010-03-23 20:19:31', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:19:31', 0, 0, 1, '2010-03-23 20:19:31', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` WHERE (completed=false) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:19:40', 0, 0, NULL, '2010-03-23 20:19:40', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:19:40', 0, 0, 1, '2010-03-23 20:19:40', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` WHERE (completed=false) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:24:39', 0, 0, NULL, '2010-03-23 20:24:39', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (21.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:24:40', 0, 0, 1, '2010-03-23 20:24:40', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load Including Associations (0.5ms)[0m   [0mSELECT `activities`.`id` AS t0_r0, `activities`.`name` AS t0_r1, `activities`.`estimate` AS t0_r2, `activities`.`completed` AS t0_r3, `activities`.`organizational` AS t0_r4, `activities`.`unplanned` AS t0_r5, `activities`.`project_id` AS t0_r6, `activities`.`user_id` AS t0_r7, `activities`.`created_at` AS t0_r8, `activities`.`updated_at` AS t0_r9, `projects`.`id` AS t1_r0, `projects`.`name` AS t1_r1, `projects`.`created_at` AS t1_r2, `projects`.`updated_at` AS t1_r3 FROM `activities` LEFT OUTER JOIN `projects` ON `projects`.id = `activities`.project_id WHERE (completed=false) ORDER BY activities.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:45:19', 0, 0, NULL, '2010-03-23 20:45:19', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:45:19', 0, 0, 1, '2010-03-23 20:45:19', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.7ms)[0m   [0mSELECT p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:45:35', 0, 0, NULL, '2010-03-23 20:45:35', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:45:35', 0, 0, 1, '2010-03-23 20:45:35', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:46:07', 0, 0, NULL, '2010-03-23 20:46:07', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:46:07', 0, 0, 1, '2010-03-23 20:46:07', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.0ms)[0m   [0mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.com' at line 1: SELECT p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) as a.actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:46:35', 0, 0, NULL, '2010-03-23 20:46:35', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:46:35', 0, 0, 1, '2010-03-23 20:46:35', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:47:23', 0, 0, NULL, '2010-03-23 20:47:23', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:47:23', 0, 0, 1, '2010-03-23 20:47:23', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (1.2ms)[0m   [0mSELECT p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:47:51', 0, 0, NULL, '2010-03-23 20:47:51', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:47:51', 0, 0, 1, '2010-03-23 20:47:51', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (18.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:48:00', 0, 0, NULL, '2010-03-23 20:48:00', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:48:00', 0, 0, 1, '2010-03-23 20:48:00', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.5ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:56:43', 0, 0, NULL, '2010-03-23 20:56:43', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:56:43', 0, 0, 1, '2010-03-23 20:56:43', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:56:58', 0, 0, NULL, '2010-03-23 20:56:58', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:56:58', 0, 0, 1, '2010-03-23 20:56:58', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:57:15', 0, 0, NULL, '2010-03-23 20:57:15', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:57:15', 0, 0, 1, '2010-03-23 20:57:15', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:57:35', 0, 0, NULL, '2010-03-23 20:57:35', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:57:35', 0, 0, 1, '2010-03-23 20:57:35', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:58:01', 0, 0, NULL, '2010-03-23 20:58:01', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:58:01', 0, 0, 1, '2010-03-23 20:58:01', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a INNER JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:58:18', 0, 0, NULL, '2010-03-23 20:58:18', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:58:18', 0, 0, 1, '2010-03-23 20:58:18', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a LEFT JOIN projects p ON a.project_id=p.id WHERE a.completed=false ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:58:58', 0, 0, NULL, '2010-03-23 20:58:58', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:58:58', 0, 0, 1, '2010-03-23 20:58:58', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a LEFT JOIN projects p ON a.project_id=p.id WHERE a.completed=false AND user_id=2 ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:59:11', 0, 0, NULL, '2010-03-23 20:59:11', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 20:59:11', 0, 0, 1, '2010-03-23 20:59:11', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a LEFT JOIN projects p ON a.project_id=p.id WHERE a.completed=false AND user_id=2 ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:00:17', 0, 0, NULL, '2010-03-23 21:00:17', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:00:17', 0, 0, 1, '2010-03-23 21:00:17', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a LEFT JOIN projects p ON a.project_id=p.id WHERE a.completed=false AND user_id=2 ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:00:34', 0, 0, NULL, '2010-03-23 21:00:34', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:00:34', 0, 0, 1, '2010-03-23 21:00:34', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a LEFT JOIN projects p ON a.project_id=p.id WHERE a.completed=false AND user_id=2 ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:00:58', 0, 0, NULL, '2010-03-23 21:00:58', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:00:58', 0, 0, 1, '2010-03-23 21:00:58', 1, 2)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM activities a LEFT JOIN projects p ON a.project_id=p.id WHERE a.completed=false AND user_id=2 ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:03:04', 0, 0, NULL, '2010-03-23 21:03:04', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:03:04', 0, 0, 1, '2010-03-23 21:03:04', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=2) ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:08:45', 0, 0, NULL, '2010-03-23 21:08:45', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:08:45', 0, 0, 1, '2010-03-23 21:08:45', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.0ms)[0m   [0mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT N' at line 1: SELECT a.id, p.name as project, a.name as activity, a.estimate, (SE LECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=2) ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:09:09', 0, 0, NULL, '2010-03-23 21:09:09', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:09:09', 0, 0, 1, '2010-03-23 21:09:09', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=2) ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:09:27', 0, 0, NULL, '2010-03-23 21:09:27', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:09:27', 0, 0, 1, '2010-03-23 21:09:27', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=2) ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPomodori Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `pomodoris`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProject Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProject Create (0.4ms)[0m   [0mINSERT INTO `projects` (`name`, `created_at`, `updated_at`) VALUES(NULL, '2010-03-23 21:10:05', '2010-03-23 21:10:05')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`created_at`, `updated_at`, `username`) VALUES('2010-03-23 21:10:05', '2010-03-23 21:10:05', NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:10:05', 0, 0, NULL, '2010-03-23 21:10:05', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:10:05', 0, 0, 1, '2010-03-23 21:10:05', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (2.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.5ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=2) ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProject Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO `projects` (`name`, `created_at`, `updated_at`) VALUES(NULL, '2010-03-23 21:10:29', '2010-03-23 21:10:29')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`created_at`, `updated_at`, `username`) VALUES('2010-03-23 21:10:29', '2010-03-23 21:10:29', NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:10:29', 0, 0, NULL, '2010-03-23 21:10:29', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:10:29', 0, 0, 1, '2010-03-23 21:10:29', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.5ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=2) ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPomodori Create (0.2ms)[0m   [0;1mINSERT INTO `pomodoris` (`start_date`, `external_interruptions`, `activity_id`, `internal_interruptions`, `canceled`, `end_date`) VALUES(NULL, 0, NULL, 0, 0, NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProject Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO `projects` (`name`, `created_at`, `updated_at`) VALUES(NULL, '2010-03-23 21:11:02', '2010-03-23 21:11:02')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`created_at`, `updated_at`, `username`) VALUES('2010-03-23 21:11:02', '2010-03-23 21:11:02', NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:11:02', 0, 0, NULL, '2010-03-23 21:11:02', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:11:02', 0, 0, 1, '2010-03-23 21:11:02', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=2) ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPomodori Create (0.2ms)[0m   [0;1mINSERT INTO `pomodoris` (`start_date`, `external_interruptions`, `activity_id`, `internal_interruptions`, `canceled`, `end_date`) VALUES(NULL, 0, NULL, 0, 0, NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+
+
+Processing ActivitiesController#index (for 0.0.0.0 at 2010-03-23 17:15:25) [GET]
+  Parameters: {"with"=>#<User id: 2, username: "jeffmor", created_at: "2010-03-23 21:15:25", updated_at: "2010-03-23 21:15:25">}
+  [4;36;1mActivity Load (0.0ms)[0m   [0;1mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ORDER BY a.created_at' at line 1: SELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=) ORDER BY a.created_at[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+
+
+Processing ActivitiesController#index (for 0.0.0.0 at 2010-03-23 17:15:49) [GET]
+  Parameters: {"with"=>"2"}
+  [4;36;1mActivity Load (0.0ms)[0m   [0;1mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ORDER BY a.created_at' at line 1: SELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=) ORDER BY a.created_at[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+
+
+Processing ActivitiesController#index (for 0.0.0.0 at 2010-03-23 17:17:11) [GET]
+  Parameters: {"user_id"=>"2"}
+  [4;36;1mActivity Load (0.7ms)[0m   [0;1mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=2) ORDER BY a.created_at[0m
+  [4;35;1mActivity Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+Completed in 8ms (View: 0, DB: 79) | 200 OK [http://test.host/activities?user_id=2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+
+Processing ActivitiesController#index (for 0.0.0.0 at 2010-03-23 17:17:32) [GET]
+  Parameters: {"user_id"=>"1"}
+  [4;36;1mActivity Load (0.5ms)[0m   [0;1mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=1) ORDER BY a.created_at[0m
+  [4;35;1mActivity Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+Completed in 5ms (View: 0, DB: 7) | 200 OK [http://test.host/activities?user_id=1]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+
+Processing ActivitiesController#index (for 0.0.0.0 at 2010-03-23 17:17:45) [GET]
+  Parameters: {"user_id"=>"1"}
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=1) ORDER BY a.created_at[0m
+  [4;35;1mActivity Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+Completed in 5ms (View: 0, DB: 7) | 200 OK [http://test.host/activities?user_id=1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProject Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO `projects` (`name`, `created_at`, `updated_at`) VALUES(NULL, '2010-03-23 21:17:59', '2010-03-23 21:17:59')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`created_at`, `updated_at`, `username`) VALUES('2010-03-23 21:17:59', '2010-03-23 21:17:59', NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.3ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:17:59', 0, 0, NULL, '2010-03-23 21:17:59', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mActivity Create (0.2ms)[0m   [0mINSERT INTO `activities` (`name`, `organizational`, `created_at`, `completed`, `unplanned`, `project_id`, `updated_at`, `user_id`, `estimate`) VALUES('Define project vision', 0, '2010-03-23 21:17:59', 0, 0, 1, '2010-03-23 21:17:59', 1, 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=2) ORDER BY a.created_at[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPomodori Create (0.2ms)[0m   [0;1mINSERT INTO `pomodoris` (`start_date`, `external_interruptions`, `activity_id`, `internal_interruptions`, `canceled`, `end_date`) VALUES(NULL, 0, NULL, 0, 0, NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pomodoris` [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+
+Processing ActivitiesController#index (for 0.0.0.0 at 2010-03-23 17:17:59) [GET]
+  Parameters: {"user_id"=>"1"}
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT a.id, p.name as project, a.name as activity, a.estimate, (SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual FROM `activities` as a LEFT JOIN projects p ON a.project_id=p.id WHERE (a.completed=false AND user_id=1) ORDER BY a.created_at[0m
+Completed in 3ms (View: 0, DB: 26) | 200 OK [http://test.host/activities?user_id=1]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m

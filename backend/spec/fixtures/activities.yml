@@ -1,0 +1,58 @@
+define_vision:
+    id: 1
+    name: "Define Vision"
+    estimate: 2
+    project_id: 1
+    user_id: 1
+    
+estimate_new_project:
+    id: 2
+    name: "Estimate new project"
+    estimate: 3
+    user_id: 2
+
+implement_book_model:
+    id: 3
+    name: "Implement book model"
+    estimate: 4
+    project_id: 2
+    user_id: 2
+    
+build_kanban:
+    id: 4
+    name: "Build Kanban"
+    estimate: 1
+    completed: true
+    project_id: 2
+    user_id: 2
+    
+day_planning:
+    id: 5
+    name: "Day planning"
+    estimate: 1
+    completed: true
+    organizational: true
+    user_id: 2
+    
+user_call:
+    id: 6
+    name: "User call"
+    estimate: 1
+    completed: true
+    unplanned: true
+    user_id: 1
+    
+boss_meeting:
+    id: 7
+    name: "Boss Meeting"
+    estimate: 2
+    unplanned: true
+    user_id: 2
+    
+team_modeling:
+    id: 8
+    name: "Team Modeling"
+    estimate: 2
+    project_id: 1
+    user_id: 2
+    

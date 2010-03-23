@@ -1,7 +1,44 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+define_vision_pm1:
+    activity_id: 1
+    start_date: '2010-03-20 14:20:21'
+    end_date: '2010-03-20 14:45:21'
+    external_interruptions: 2
+    internal_interruptions: 0
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+estimate_new_project_pm1:
+    activity_id: 2
+    start_date: '2010-03-21 15:03:02'
+    end_date: '2010-03-21 15:28:02'
+    external_interruptions: 1
+
+estimate_new_project_pm2:
+    activity_id: 2
+    start_date: '2010-03-21 15:33:02'
+    end_date: '2010-03-21 15:58:02'
+
+# canceled
+estimate_new_project_pm3:
+    activity_id: 2
+    start_date: '2010-03-21 16:10:22'
+    canceled: true
+
+# unifinishec
+estimate_new_project_pm4:
+    activity_id: 2
+    start_date: '2010-03-21 16:20:12'
+
+build_kanban_pm1:
+    activity_id: 4
+    start_date: '2010-03-21 08:25:43'
+    end_date: '2010-03-21 08:50:43'
+    external_interruptions: 1
+    
+day_planning:
+    activity_id: 5
+    start_date: '2010-03-21 08:22:32'
+    end_date: '2010-03-21 08:47:32'
+
+user_call:
+    activity_id: 6
+    start_date: '2010-03-21 08:22:32'
+    end_date: '2010-03-21 08:47:32'

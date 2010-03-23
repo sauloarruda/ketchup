@@ -18,10 +18,10 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: backend_development
+  database: ketchup_development
   pool: 5
   username: root
-  password:
+  password: root
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -31,18 +31,18 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: backend_test
+  database: ketchup_test
   pool: 5
   username: root
-  password:
+  password: root
   socket: /tmp/mysql.sock
 
 production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: backend_production
+  database: ketchup_production
   pool: 5
   username: root
-  password: 
+  password: root
   socket: /tmp/mysql.sock

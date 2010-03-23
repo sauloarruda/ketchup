@@ -3,8 +3,6 @@ require 'spec_helper'
 describe Pomodori do
   before(:each) do
     @valid_attributes = {
-      :organizational => true,
-      :unplanned => false
     }
   end
 
