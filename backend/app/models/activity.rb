@@ -17,6 +17,7 @@ class Activity < ActiveRecord::Base
     json = []
     activities.each do |a|
       row = []
+      row << a.attributes["id"]
       row << (a.attributes["project"] || "")
       row << a.attributes["activity"]
       row << a.attributes["estimate"]

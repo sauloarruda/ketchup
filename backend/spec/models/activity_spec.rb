@@ -31,12 +31,12 @@ describe Activity do
 
   it "should define a list method" do
     activities = Activity.list(users(:jeffmor).id)
-    # [ [ :project, :activity, :estimate, :actual ] ]
+    # [ [ :activity_id, :project, :activity, :estimate, :actual ] ]
     activities.should == [ 
-      [ "", "Estimate new project", 3, 2 ], 
-      [ "Libres", "Implement book model", 4, 0 ],
-      ["", "Boss Meeting", 2, 0],
-      [ "Ketchup", "Team Modeling", 2, 0 ]
+      [ 2, "", "Estimate new project", 3, 2 ], 
+      [ 3, "Libres", "Implement book model", 4, 0 ],
+      [ 7, "", "Boss Meeting", 2, 0],
+      [ 8, "Ketchup", "Team Modeling", 2, 0 ]
     ]
   end
     

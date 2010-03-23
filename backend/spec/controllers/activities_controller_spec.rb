@@ -8,7 +8,7 @@ describe ActivitiesController do
     it "should render activity list json" do
       get 'index', :user_id => users(:darrudapinto).id
       response.should be_success
-      response.should have_text("[[\"Ketchup\",\"Define Vision\",2,1]]")
+      response.should have_text("[[1,\"Ketchup\",\"Define Vision\",2,1]]")
     end
     
   end
