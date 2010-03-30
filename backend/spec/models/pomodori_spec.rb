@@ -16,6 +16,6 @@ describe Pomodori do
   it "should be invalid without required attributes" do
     pomodori = Pomodori.new
     pomodori.should_not be_valid
-    pomodori.should have(1).errors_on(:activity_id)
+    pomodori.should have(1).errors_on(:activity)
   end
 end
