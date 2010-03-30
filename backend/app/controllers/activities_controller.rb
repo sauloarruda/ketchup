@@ -1,4 +1,3 @@
-require 'msgpack'
 class ActivitiesController < ApplicationController
   
   def index
