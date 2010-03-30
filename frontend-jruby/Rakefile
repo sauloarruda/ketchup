@@ -4,4 +4,13 @@ require 'spec/rake/spectask'
 desc "Run all examples"
 Spec::Rake::SpecTask.new('spec') do |t|
   t.spec_files = FileList['spec/**/*.rb']
+  t.spec_opts = ["--format", "s", "-c"]
+end
+
+desc "Run all examples with RCov"
+Spec::Rake::SpecTask.new('spec:rcov') do |t|
+  t.spec_files = FileList['spec/**/*.rb']
+  t.spec_opts = ["--format", "s", "-c"]
+  t.rcov = true
+  t.rcov_opts = ['--exclude', 'ruby']
 end

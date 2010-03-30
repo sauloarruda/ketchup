@@ -9,6 +9,7 @@ class Activity < ActiveRecord::Base
   
   # obtain the activity list for an user
   def Activity.list(user_id)
+    raise "param user_id is required" unless user_id
     activities = find :all, :select => "a.id, p.name as project, a.name as activity, a.estimate, " + 
         "(SELECT count(id) FROM pomodoris p WHERE p.activity_id=a.id AND p.end_date IS NOT NULL) AS actual",
         :joins => "as a LEFT JOIN projects p ON a.project_id=p.id",

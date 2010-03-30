@@ -1,0 +1,2 @@
+class PomodorisController < ApplicationController
+end

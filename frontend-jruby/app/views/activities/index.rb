@@ -6,7 +6,7 @@ module ActivitiesViews
     def initialize(activity_service)
       super()
       self.layout = BorderLayout.new
-      @table = JTable.new(ActivitiesTableModel.new(activity_service))       
+      @table = JTable.new(ActivitiesTableModel.new(activity_service))
       self.add(@table.table_header, BorderLayout::PAGE_START)
       self.add(@table, BorderLayout::CENTER)
       self.add(create_buttons, BorderLayout::SOUTH)
